@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidNexus - About Us</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .value-card,
+        .team-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover,
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--card-bg);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--card-bg);
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--card-bg) transparent transparent;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--card-bg) transparent transparent;
+            }
+
+            .left::after,
+            .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                BidNexus
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Home <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Dashboard <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Auction Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <div class="controls">
+                            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                            <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">LOGIN</a>
+                    <a href="signup.html" class="btn" style="padding: 0.5rem 1rem;">SIGN UP</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-color: var(--card-bg); padding: 5rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">Our Auction Story</h1>
+            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Connecting
+                collectors with extraordinary treasures around the globe.</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="about-content" style="padding: 5rem 0;">
+        <div class="container"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
+            <div class="animate-left">
+                <img src="Assets/hero-auction.jpg" alt="Auction Room" class="service-illustration floating"
+                    style="border-radius: 20px; width: 100%; box-shadow: var(--shadow);">
+            </div>
+            <div>
+                <span style="color: var(--primary-color); font-weight: 600; letter-spacing: 1px;">OUR STORY</span>
+                <h2 style="margin: 1rem 0 1.5rem; font-size: 2.5rem;">Authentic. Transparent. Global.</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8;">
+                    Founded in 2026, BidNexus began as an elite marketplace for high-end collectibles. We saw
+                    a need for a platform that combined technical excellence with the excitement of a live auction room.
+                </p>
+                <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.8;">
+                    Today, we facilitate millions in bids every month, ensuring every transaction is protected
+                    and every item is verified. Whether you're a first-time bidder or a seasoned collector, we bring the
+                    world's finest collections to your fingertips.
+                </p>
+                <div class="stats-row" style="display: flex; gap: 3rem; margin-top: 2rem;">
+                    <div>
+                        <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0;">5+</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Years Experience</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0;">500+</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Auctions Hosted</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section style="padding: 5rem 0; background-color: var(--bg-color);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem;">Our Journey</h2>
+                <p style="color: var(--text-muted);">From a small startup to a global marketplace.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--primary-color);">2016</h3>
+                        <p style="color: var(--text-muted);">The Inception. BidNexus was founded with a vision to
+                            revolutionize the traditional auction industry through technology.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--primary-color);">2018</h3>
+                        <p style="color: var(--text-muted);">First Online Event. We hosted our first fully digital
+                            auction, attracting bidders from over 15 countries.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--primary-color);">2021</h3>
+                        <p style="color: var(--text-muted);">Mobile App Launch. Our award-winning bidding app makes
+                            participating in live auctions seamless.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--primary-color);">2024</h3>
+                        <p style="color: var(--text-muted);">Global Expansion. We opened offices in London and Tokyo to
+                            serve our growing international base.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--primary-color);">2026</h3>
+                        <p style="color: var(--text-muted);">10th Anniversary. Celebrating a decade of excellence as the
+                            world's premier digital auction house.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section style="padding: 5rem 0; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); color: white;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem;">
+                <div>
+                    <h2 style="font-size: 2.5rem; color: var(--primary-color);">Awards & Recognition</h2>
+                    <p style="color: var(--text-muted); max-width: 500px;">Excellence is not just our goal; it's our
+                        standard. We are
+                        proud to be recognized by industry leaders.</p>
+                </div>
+                <div style="display: none; @media(min-width: 768px){display: block;}">
+                    <i class="fas fa-trophy" style="font-size: 4rem; color: rgba(212, 175, 55, 0.2);"></i>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div
+                    style="border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; background: rgba(255,255,255,0.02); text-align: center;">
+                    <i class="fas fa-award"
+                        style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h4 style="margin-bottom: 0.5rem;">Best Global Platform</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Intl. Auction Awards 2025</p>
+                </div>
+                <div
+                    style="border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; background: rgba(255,255,255,0.02); text-align: center;">
+                    <i class="fas fa-certificate"
+                        style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h4 style="margin-bottom: 0.5rem;">Tech Innovation</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Digital Commerce Summit</p>
+                </div>
+                <div
+                    style="border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; background: rgba(255,255,255,0.02); text-align: center;">
+                    <i class="fas fa-shield-alt"
+                        style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h4 style="margin-bottom: 0.5rem;">Most Secure Marketplace</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">CyberSecurity Weekly</p>
+                </div>
+                <div
+                    style="border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; background: rgba(255,255,255,0.02); text-align: center;">
+                    <i class="fas fa-star"
+                        style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h4 style="margin-bottom: 0.5rem;">Customer Choice</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Consumer Trust Index</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section style="padding: 5rem 0; background-color: var(--card-bg);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem;">Our Core Values</h2>
+                <p style="color: var(--text-muted);">The principles that guide every pixel we push.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <!-- Value 1 -->
+                <div class="value-card">
+                    <div style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">We don't just follow trends; we aim to set
+                        them. Creative problem solving is in our DNA.</p>
+                </div>
+                <!-- Value 2 -->
+                <div class="value-card">
+                    <div style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">Transparency and honesty are paramount. We
+                        build trust through clear communication.</p>
+                </div>
+                <!-- Value 3 -->
+                <div class="value-card">
+                    <div style="font-size: 2.5rem; color: var(--success-color); margin-bottom: 1rem;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p style="color: var(--text-muted); margin-top: 1rem;">We work with you, not just for you. Your
+                        success is our shared victory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section style="padding: 5rem 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem;">Meet The Team</h2>
+                <p style="color: var(--text-muted);">The experts behind your next big project.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <!-- Member 1 -->
+                <div class="team-card">
+                    <div
+                        style="width: 100px; height: 100px; background: #ddd; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden;">
+                        <img src="https://i.pravatar.cc/150?u=alex_morgan"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3>Alex Morgan</h3>
+                    <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 1rem;">Head of Curation</p>
+                    <div style="display: flex; justify-content: center; gap: 1rem;">
+                        <a href="#"><i class="fab fa-linkedin" style="color: var(--text-muted);"></i></a>
+                        <a href="#"><i class="fab fa-twitter" style="color: var(--text-muted);"></i></a>
+                    </div>
+                </div>
+                <!-- Member 2 -->
+                <div class="team-card">
+                    <div
+                        style="width: 100px; height: 100px; background: #ddd; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden;">
+                        <img src="https://i.pravatar.cc/150?u=sarah_chen"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3>Sarah Chen</h3>
+                    <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 1rem;">Luxury Specialist
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 1rem;">
+                        <a href="#"><i class="fab fa-linkedin" style="color: var(--text-muted);"></i></a>
+                        <a href="#"><i class="fab fa-dribbble" style="color: var(--text-muted);"></i></a>
+                    </div>
+                </div>
+                <!-- Member 3 -->
+                <div class="team-card">
+                    <div
+                        style="width: 100px; height: 100px; background: #ddd; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden;">
+                        <img src="https://i.pravatar.cc/150?u=michael_ross"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3>Michael Ross</h3>
+                    <p style="color: var(--primary-color); font-size: 0.9rem; margin-bottom: 1rem;">Logistics Director
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 1rem;">
+                        <a href="#"><i class="fab fa-linkedin" style="color: var(--text-muted);"></i></a>
+                        <a href="#"><i class="fab fa-twitter" style="color: var(--text-muted);"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Presence -->
+    <section style="padding: 5rem 0; background-color: var(--card-bg);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem;">Global Presence</h2>
+                <p style="color: var(--text-muted);">From New York to Tokyo, we are where you are.</p>
+            </div>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; text-align: center;">
+                <div style="padding: 2rem;">
+                    <h3 style="color: var(--primary-color);">London</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">EMEA Headquarters</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">123 Oxford Street, London, UK</p>
+                </div>
+                <div
+                    style="padding: 2rem; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color);">
+                    <h3 style="color: var(--primary-color);">New York</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">North America Hub</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">5th Avenue, NYC, USA</p>
+                </div>
+                <div style="padding: 2rem;">
+                    <h3 style="color: var(--primary-color);">Tokyo</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Asia Pacific Center</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Shinjuku, Tokyo, Japan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section style="padding: 5rem 0; background-color: var(--card-bg);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem;">What Our Collectors Say</h2>
+                <p style="color: var(--text-muted);">Trusted by thousands of bidders worldwide.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Testimonial 1 -->
+                <div class="value-card" style="text-align: left;">
+                    <div style="margin-bottom: 1rem; color: var(--success-color);">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--text-color); font-style: italic; margin-bottom: 1.5rem;">"BidNexus
+                        transformed
+                        how I acquire rare vintage watches. The transparency and ease of use are unmatched in the
+                        industry."</p>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <img src="https://i.pravatar.cc/150?u=james_w"
+                            style="width: 50px; height: 50px; border-radius: 50%; opacity: 0.8;">
+                        <div>
+                            <h5 style="margin: 0;">James Wilson</h5>
+                            <span style="font-size: 0.8rem; color: var(--primary-color);">Collector, London</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="value-card" style="text-align: left;">
+                    <div style="margin-bottom: 1rem; color: var(--success-color);">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="color: var(--text-color); font-style: italic; margin-bottom: 1.5rem;">"As a seller, I
+                        appreciate the verified bidder system. It ensures that every bid is serious and every
+                        transaction
+                        is secure."</p>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <img src="https://i.pravatar.cc/150?u=elena_r"
+                            style="width: 50px; height: 50px; border-radius: 50%; opacity: 0.8;">
+                        <div>
+                            <h5 style="margin: 0;">Elena Rodriguez</h5>
+                            <span style="font-size: 0.8rem; color: var(--primary-color);">Art Dealer, Madrid</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="value-card" style="text-align: left;">
+                    <div style="margin-bottom: 1rem; color: var(--success-color);">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p style="color: var(--text-color); font-style: italic; margin-bottom: 1.5rem;">"The interface is
+                        stunning and the real-time bidding system is incredibly responsive. It's the future of online
+                        auctions."</p>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <img src="https://i.pravatar.cc/150?u=david_k"
+                            style="width: 50px; height: 50px; border-radius: 50%; opacity: 0.8;">
+                        <div>
+                            <h5 style="margin: 0;">David Kim</h5>
+                            <span style="font-size: 0.8rem; color: var(--primary-color);">Tech Entrepreneur,
+                                Seoul</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="padding: 5rem 0; text-align: center;">
+        <div class="container">
+            <div
+                style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.05)); border: 1px solid var(--primary-color); border-radius: 20px; padding: 4rem 2rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Start Bidding?</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">Join
+                    BidNexus today and discover a world of exclusive items waiting for you.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="signup.html" class="btn"
+                        style="padding: 1rem 2.5rem; font-size: 1.1rem; background: var(--primary-color); color: var(--secondary-color); border: none;">Create
+                        Account</a>
+                    <a href="auctions.html" class="btn btn-outline"
+                        style="padding: 1rem 2.5rem; font-size: 1.1rem;">Browse Auctions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
+                <!-- Stat Item 1 -->
+                <div class="stat-item counter-animate">
+                    <div class="stat-number" data-target="120">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <!-- Stat Item 2 -->
+                <div class="stat-item counter-animate" style="transition-delay: 0.1s;">
+                    <div class="stat-number" data-target="2500">0</div>
+                    <div class="stat-label">Successful Bids</div>
+                </div>
+                <!-- Stat Item 3 -->
+                <div class="stat-item counter-animate" style="transition-delay: 0.2s;">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Record Prices</div>
+                </div>
+                <!-- Stat Item 4 -->
+                <div class="stat-item counter-animate" style="transition-delay: 0.3s;">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 2rem;">
+                <div>
+                    <h3 class="footer-logo">BidNexus</h3>
+                    <p style="color: var(--footer-text);">Innovating the future of auctions, one bid at a time.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul style="line-height: 2;">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul style="line-height: 2;">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <a href="#" style="font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p style="color: var(--footer-text);">&copy; 2026 BidNexus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+</body>
+
+</html>
