@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidNexus - Vintage Chronograph Watch</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                BidNexus
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Home <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Home 1</a>
+                            <a href="index2.html">Home 2</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Dashboard <i class="fas fa-caret-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="user-dashboard.html">User Dashboard</a>
+                            <a href="admin-dashboard.html">Admin Dashboard</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Auction Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <div class="controls">
+                            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                            <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">LOGIN</a>
+                    <a href="signup.html" class="btn" style="padding: 0.5rem 1rem;">SIGN UP</a>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Item Details -->
+    <section class="item-details" style="padding: 5rem 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                <!-- Gallery -->
+                <div class="item-gallery">
+                    <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=1200&auto=format&fit=crop"
+                        alt="Vintage Watch"
+                        style="width: 100%; border-radius: 20px; box-shadow: var(--shadow); margin-bottom: 1rem;"
+                        class="main-image">
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+                        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=200&auto=format&fit=crop"
+                            style="width: 100%; border-radius: 10px; cursor: pointer; border: 2px solid var(--primary-color);">
+                        <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=200&auto=format&fit=crop"
+                            style="width: 100%; border-radius: 10px; cursor: pointer; opacity: 0.6;">
+                        <img src="https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=200&auto=format&fit=crop"
+                            style="width: 100%; border-radius: 10px; cursor: pointer; opacity: 0.6;">
+                        <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?q=80&w=200&auto=format&fit=crop"
+                            style="width: 100%; border-radius: 10px; cursor: pointer; opacity: 0.6;">
+                    </div>
+                </div>
+
+                <!-- Info & Bidding -->
+                <div class="item-info auction-card">
+                    <span class="bid-badge live animate-pulse" style="margin-bottom: 1rem;">Live Auction</span>
+                    <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Vintage Chronograph Watch</h1>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Seller: @SwissMaster (4.9⭐)</p>
+
+                    <div
+                        style="background: var(--bg-color); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--text-muted);">Current Bid</span>
+                            <span class="price-tag">$1,250</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: var(--text-muted);">Time Left</span>
+                            <span class="timer" data-time="3600">00:59:59</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <p class="bid-count" style="margin-bottom: 1rem;">Minimum Bid: $1,260</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <input type="number" id="bid-input" value="1260" min="1260"
+                                style="flex: 1; padding: 1rem; border-radius: 50px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); font-weight: 700;">
+                            <button id="place-bid-btn" class="btn" style="flex: 2;">Place Your Bid</button>
+                        </div>
+                    </div>
+
+                    <div class="tabs" style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+                        <div style="display: flex; gap: 2rem; margin-bottom: 1.5rem;">
+                            <h4
+                                style="color: var(--primary-color); border-bottom: 2px solid var(--primary-color); cursor: pointer;">
+                                Description</h4>
+                            <h4 style="color: var(--text-muted); cursor: pointer;">History</h4>
+                            <h4 style="color: var(--text-muted); cursor: pointer;">Shipping</h4>
+                        </div>
+                        <p style="color: var(--text-muted); line-height: 1.8;">
+                            A rare vintage chronograph from the late 1960s in excellent condition. Features a mechanical
+                            movement, stainless steel case, and original leather strap. Fully serviced and keeping
+                            perfect time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bidding History Table -->
+            <div style="margin-top: 5rem;">
+                <h3>Recent Bids</h3>
+                <div class="activity-table"
+                    style="margin-top: 1.5rem; background: var(--card-bg); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color);">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--bg-color); text-align: left;">
+                                <th style="padding: 1.5rem;">Bidder</th>
+                                <th style="padding: 1.5rem;">Amount</th>
+                                <th style="padding: 1.5rem;">Time</th>
+                                <th style="padding: 1.5rem;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bid-history-body">
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                                    <img src="https://i.pravatar.cc/150?u=alex"
+                                        style="width: 32px; height: 32px; border-radius: 50%;">
+                                    <span>Alex J.</span>
+                                </td>
+                                <td style="padding: 1.5rem; font-weight: 700;">$1,250</td>
+                                <td style="padding: 1.5rem; color: var(--text-muted);">2 mins ago</td>
+                                <td style="padding: 1.5rem;"><span class="bid-badge live"
+                                        style="font-size: 0.7rem; padding: 0.2rem 0.5rem;">Highest</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                                    <img src="https://i.pravatar.cc/150?u=elena"
+                                        style="width: 32px; height: 32px; border-radius: 50%;">
+                                    <span>Elena R.</span>
+                                </td>
+                                <td style="padding: 1.5rem; font-weight: 700;">$1,210</td>
+                                <td style="padding: 1.5rem; color: var(--text-muted);">15 mins ago</td>
+                                <td style="padding: 1.5rem;">Outbid</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-logo">BidNexus</h3>
+                    <p style="color: var(--footer-text);">Innovating the future of auctions, one bid at a time.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul style="line-height: 2;">
+                        <li><a href="auctions.html">Live Auctions</a></li>
+                        <li><a href="about.html">How it Works</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul style="line-height: 2;">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright" style="color: var(--footer-text);">&copy; 2026 BidNexus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="rtltoggle.js"></script>
+    <script>
+        // Specific logic for item details bidding
+        document.getElementById('place-bid-btn').addEventListener('click', function () {
+            const input = document.getElementById('bid-input');
+            const amount = parseInt(input.value);
+            const currentPriceTag = document.querySelector('.item-info .price-tag');
+            const currentPrice = parseInt(currentPriceTag.innerText.replace('$', '').replace(',', ''));
+
+            if (amount > currentPrice) {
+                // Update price
+                currentPriceTag.innerText = '$' + amount.toLocaleString();
+                currentPriceTag.style.animation = 'pulse 0.5s';
+                setTimeout(() => currentPriceTag.style.animation = '', 500);
+
+                // Update input min
+                input.min = amount + 10;
+                input.value = amount + 10;
+
+                // Add to history table
+                const tbody = document.getElementById('bid-history-body');
+                const firstRow = tbody.rows[0];
+                if (firstRow) {
+                    firstRow.cells[3].innerHTML = 'Outbid';
+                    firstRow.cells[3].style.color = 'var(--text-muted)';
+                }
+
+                const newRow = tbody.insertRow(0);
+                newRow.style.borderBottom = '1px solid var(--border-color)';
+                newRow.innerHTML = `
+                    <td style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--primary-color); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">U</div>
+                        <span>You</span>
+                    </td>
+                    <td style="padding: 1.5rem; font-weight: 700;">$${amount.toLocaleString()}</td>
+                    <td style="padding: 1.5rem; color: var(--text-muted);">Just now</td>
+                    <td style="padding: 1.5rem;"><span class="bid-badge live" style="font-size: 0.7rem; padding: 0.2rem 0.5rem;">Highest</span></td>
+                `;
+            }
+        });
+    </script>
+</body>
+
+</html>
